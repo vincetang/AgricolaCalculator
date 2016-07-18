@@ -103,5 +103,9 @@
     </string>
     <string name="title_activity_score_counter">ScoreCounter</string>
     <string name="title_activity_score_by_points">ScoreByPoints</string>
+    <string name="strDone">Done</string>
+    <string name="no_more_players">No More Players</string>
+    <string name="next">Next</string>
+    <string name="title_activity_score_screen">ScoreScreenActivity</string>
 
 </resources>

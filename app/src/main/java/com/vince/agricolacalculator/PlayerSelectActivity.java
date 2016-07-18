@@ -18,7 +18,7 @@ public class PlayerSelectActivity extends AppCompatActivity implements View.OnCl
     private Player player;
     private EditText playerNameInput;
 
-    private Button nextButton;
+    private Button nextButton, noMorePlayersButton;
 
     private Player.PlayerColour playerColour;
     private String playerName;
@@ -52,6 +52,7 @@ public class PlayerSelectActivity extends AppCompatActivity implements View.OnCl
         btnNatural = (ImageButton) findViewById(R.id.btnNatural);
         btnRed = (ImageButton) findViewById(R.id.btnRed);
         nextButton = (Button) findViewById(R.id.nextButton);
+        noMorePlayersButton = (Button) findViewById(R.id.noMorePlayersButton);
 
         // set listeners
         btnBlue.setOnClickListener(this);
@@ -59,12 +60,21 @@ public class PlayerSelectActivity extends AppCompatActivity implements View.OnCl
         btnNatural.setOnClickListener(this);
         btnRed.setOnClickListener(this);
         nextButton.setOnClickListener(this);
+        noMorePlayersButton.setOnClickListener(this);
 
         // set images
         btnBlue.setImageResource(R.drawable.blue);
         btnPurple.setImageResource(R.drawable.purple);
         btnNatural.setImageResource(R.drawable.natural);
         btnRed.setImageResource(R.drawable.red);
+
+        if (MainActivity.players.size() == 0) {
+            noMorePlayersButton.setEnabled(false);
+            noMorePlayersButton.setVisibility(View.INVISIBLE);
+        } else {
+            noMorePlayersButton.setEnabled(true);
+            noMorePlayersButton.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -88,6 +98,11 @@ public class PlayerSelectActivity extends AppCompatActivity implements View.OnCl
                 player = new Player(playerName, playerColour);
                 MainActivity.players.add(player);
 
+                // testing
+                player.addScore("Sheep", 5);
+                player.addScore("Cattle", 2);
+                player.addScore("people", 3);
+
                 Intent intent = null;
 
                 if (MainActivity.scoreMode == MainActivity.ScoreMode.POINTS) {
@@ -96,9 +111,12 @@ public class PlayerSelectActivity extends AppCompatActivity implements View.OnCl
                 } else {
                     intent = new Intent(PlayerSelectActivity.this, ScoreByCount.class);
                 }
-
+                intent.putExtra("itemIndex", 0);
                 intent.putExtra("player", player);
                 startActivity(intent);
+                break;
+            case R.id.noMorePlayersButton:
+                // show scores
                 break;
         }
 

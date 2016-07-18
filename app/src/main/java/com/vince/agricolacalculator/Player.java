@@ -3,6 +3,7 @@ package com.vince.agricolacalculator;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -10,18 +11,29 @@ import java.util.LinkedHashMap;
  */
 public class Player implements Parcelable {
 
-
-
     public static enum PlayerColour {
         NATURAL,
         BLUE,
         RED,
         PURPLE
     }
+    private int totalScore;
     private String name;
     private PlayerColour colour;
-    private LinkedHashMap<String, Integer> scores;
+    private HashMap<String, Integer> scores;
 
+    public Player(String name, PlayerColour colour) {
+        this.name = name;
+        this.colour = colour ;
+        scores = new HashMap<String, Integer>();
+        totalScore = 0;
+    }
+
+    public Player(Parcel in) {
+        name = in.readString();
+        colour = PlayerColour.valueOf(in.readString());
+        scores = in.readHashMap(Integer.class.getClassLoader());
+    }
 
 
     @Override
@@ -47,24 +59,18 @@ public class Player implements Parcelable {
         }
     };
 
-    public Player(Parcel in) {
-        name = in.readString();
-        colour = PlayerColour.valueOf(in.readString());
-        scores = in.readMap();
 
-    }
-
-    public Player(String name, PlayerColour colour) {
-        this.name = name;
-        this.colour = colour ;
-        scores = new LinkedHashMap<String, Integer>();
-    }
 
     public void addScore(String item, int score) {
+        totalScore += score;
         scores.put(item, score);
     }
 
-    public LinkedHashMap<String, Integer> getScores() {
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public HashMap<String, Integer> getScores() {
         return this.scores;
     }
 
@@ -74,5 +80,9 @@ public class Player implements Parcelable {
 
     public PlayerColour getColour() {
         return this.colour;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

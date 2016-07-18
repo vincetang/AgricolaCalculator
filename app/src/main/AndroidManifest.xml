@@ -29,6 +29,10 @@
         <activity
             android:name=".ScoreByPoints"
             android:label="@string/title_activity_score_by_points"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScoreScreenActivity"
+            android:label="@string/title_activity_score_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

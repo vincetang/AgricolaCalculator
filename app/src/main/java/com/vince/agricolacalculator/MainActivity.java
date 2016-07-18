@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static boolean isColourAvailable(String colour) {
         for (Player player : players) {
-            if (player.getColour() == colour) {
+            if (player.getColour().toString().equalsIgnoreCase(colour)) {
                 return false;
             }
         }
