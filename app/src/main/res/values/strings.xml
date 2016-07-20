@@ -107,5 +107,22 @@
     <string name="no_more_players">No More Players</string>
     <string name="next">Next</string>
     <string name="title_activity_score_screen">ScoreScreenActivity</string>
+    <string name="start_over">Start Over</string>
+    <string name="add_player">Add Player</string>
+    <string name="player">Player</string>
+    <string name="fields">Fields</string>
+    <string name="pastures">Pastures</string>
+    <string name="grains">Grains</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="sheep">Sheep</string>
+    <string name="wild_boar">Wild Boar</string>
+    <string name="cattle">Cattle</string>
+    <string name="unused_farm_spaces">Unused Farm Spaces</string>
+    <string name="stables">Stables</string>
+    <string name="clay_hut_rooms">Clay Hut Rooms</string>
+    <string name="stone_rooms">Stone Rooms</string>
+    <string name="family_members">Family Members</string>
+    <string name="bonus_points">Bonus Points</string>
+    <string name="total_score">Total Score</string>
 
 </resources>

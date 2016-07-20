@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,12 +14,117 @@
     tools:showIn="@layout/activity_score_screen">
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/tableLayout"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     <!-- rows go in here with heading : p1.score, p2score, p3.score... -->
+        <TableRow android:id="@+id/playersRow"
+            android:background="#e1e1ea">
+            <TextView 
+                android:text="@string/player"
+                android:paddingRight="5dp"
+                />
+        </TableRow>
+        <TableRow android:id="@+id/fieldsRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/fields"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/pasturesRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/pastures"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/grainsRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/grains"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/vegetablesRow"
+            android:background="#f0f0f5">
+            <TextView 
+                android:text="@string/vegetables"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/sheepRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/sheep"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/wildBoarRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/wild_boar"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/cattleRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/cattle"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/unusedFarmRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/unused_farm_spaces"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/stablesRow"
+            android:background="#f0f0f5">
+           <TextView android:text="@string/stables"
+               android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/clayRoomsRow"
+            android:background="#f0f0f5">
+           <TextView android:text="@string/clay_hut_rooms"
+               android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/stoneRoomsRow"
+            android:background="#f0f0f5">
+          <TextView android:text="@string/stone_rooms"
+              android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/familyMembersRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/family_members"
+                android:paddingRight="5dp" />
+        </TableRow>
+        <TableRow android:id="@+id/bonusRow"
+            android:background="#f0f0f5">
+            <TextView android:text="@string/bonus_points"
+                android:paddingRight="5dp"/>
+        </TableRow>
+        <TableRow android:id="@+id/totalRow"
+            android:background="#e1e1ea">
+            <TextView android:text="@string/total_score"
+                android:textStyle="bold"
+                android:paddingRight="5dp"/>
+        </TableRow>
     </TableLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_over"
+        android:id="@+id/btnStartOver"
+        android:layout_below="@+id/tableLayout"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_player"
+        android:id="@+id/btnAddPlayer"
+        android:layout_alignTop="@+id/btnStartOver"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        />
 </RelativeLayout>

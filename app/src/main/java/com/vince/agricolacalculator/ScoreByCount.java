@@ -31,6 +31,7 @@ public class ScoreByCount extends AppCompatActivity implements View.OnClickListe
     private int itemIndex;
     private String curItem, description;
     private Player player;
+    private int playerIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +42,22 @@ public class ScoreByCount extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         itemIndex = intent.getIntExtra("itemIndex", 0);
         curItem = ITEM_NAMES[itemIndex];
-        player = intent.getExtras().getParcelable("player");
+        playerIndex = intent.getIntExtra("playerIndex", -1);
+
+        if (playerIndex == -1) {
+            Log.e(ScoreByCount.class.getName(), "Error retrieving player index");
+            return;
+        }
+
+        player = MainActivity.players.get(playerIndex);
+
         Log.d(LOG_TAG, "Got player " + player.getName());
         Log.d(LOG_TAG, "Colour: " + player.getColour());
         Log.d(LOG_TAG, "Scores: " + player.getScores().toString());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(curItem);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setTitle(curItem);
+//        setSupportActionBar(toolbar);
 
         // Initialize image
         itemImage = (ImageView) findViewById(R.id.itemImage);
@@ -156,6 +165,12 @@ public class ScoreByCount extends AppCompatActivity implements View.OnClickListe
             case 10:
                 itemImage.setImageResource(R.drawable.placeholder);
                 break;
+            case 11:
+                itemImage.setImageResource(R.drawable.placeholder);
+                break;
+            case 12:
+                itemImage.setImageResource(R.drawable.placeholder);
+                break;
         }
     }
 
@@ -235,10 +250,11 @@ public class ScoreByCount extends AppCompatActivity implements View.OnClickListe
         }
         player.addScore(curItem, pointsToAdd);
 
-        if (itemIndex < ITEM_NAMES.length) {
+        if (itemIndex < ITEM_NAMES.length - 1) {
             // Load next intent
             Intent intent = new Intent(ScoreByCount.this, ScoreByCount.class);
             intent.putExtra("player", player);
+            intent.putExtra("playerIndex", playerIndex);
             intent.putExtra("itemIndex", itemIndex + 1);
             startActivity(intent);
         } else {

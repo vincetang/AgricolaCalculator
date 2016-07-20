@@ -42,6 +42,7 @@
         android:layout_toRightOf="@+id/nicknameLabel"
         android:layout_toEndOf="@+id/nicknameLabel" />
 
+
     <ImageButton
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -98,6 +99,11 @@
         android:layout_marginStart="30dp"
         android:text="@string/no_more_players"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkMark"
+        android:src="@drawable/greencheckmark"/>
 
 
 </RelativeLayout>

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static GameMode gameMode;
     public static ScoreMode scoreMode;
-    public static ArrayList<Player> players;
+    public static ArrayList<Player> players = new ArrayList<Player>();
 
     private Spinner spinner;
     private Button scoreByCount, scoreByPoints;
@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         scoreByCount.setOnClickListener(this);
         scoreByPoints.setOnClickListener(this);
 
-        players = new ArrayList<Player>();
-    }
+     }
 
     private void setGameModeSpinner() {
         spinner = (Spinner) findViewById(R.id.mode_spinner);
