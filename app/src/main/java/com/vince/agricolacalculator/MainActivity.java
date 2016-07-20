@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public  enum GameMode { EASY, NORMAL, HARD }
     public  enum ScoreMode { COUNT, POINTS }
 
+    public static final int MAX_PLAYERS = 4;
+
     public static GameMode gameMode;
     public static ScoreMode scoreMode;
     public static ArrayList<Player> players = new ArrayList<Player>();
@@ -149,4 +151,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    public static boolean gameFull() {
+        return (players.size() == MAX_PLAYERS);
+    }
+    public static void clearData() {
+        players.clear();
+
+    }
 }

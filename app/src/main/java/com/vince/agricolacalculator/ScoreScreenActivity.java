@@ -1,6 +1,7 @@
 package com.vince.agricolacalculator;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,14 +12,16 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.Map;
 
-public class ScoreScreenActivity extends AppCompatActivity {
+public class ScoreScreenActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TableRow playersRow, fieldsRow, pasturesRow, grainsRow, vegetablesRow, sheepRow,
             wildBoarRow, cattleRow, unusedFarmRow, stablesRow, clayRoomsRow, stoneRoomsRow,
@@ -27,6 +30,8 @@ public class ScoreScreenActivity extends AppCompatActivity {
     // Table layout parameters
     private static final TableRow.LayoutParams params = new TableRow.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
             ActionBar.LayoutParams.WRAP_CONTENT,1.0f);
+
+    private Button btnStartOver, btnAddPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,11 @@ public class ScoreScreenActivity extends AppCompatActivity {
         bonusRow = (TableRow) findViewById(R.id.bonusRow);
         totalRow = (TableRow) findViewById(R.id.totalRow);
 
+        btnStartOver = (Button) findViewById(R.id.btnStartOver);
+        btnAddPlayer = (Button) findViewById(R.id.btnAddPlayer);
+
+        btnStartOver.setOnClickListener(this);
+        btnAddPlayer.setOnClickListener(this);
         fillTable();
 
     }
@@ -144,4 +154,22 @@ public class ScoreScreenActivity extends AppCompatActivity {
         return null;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnStartOver:
+                MainActivity.clearData();
+                Intent newIntent = new Intent(ScoreScreenActivity.this, MainActivity.class);
+                startActivity(newIntent);
+                break;
+            case R.id.btnAddPlayer:
+                if (MainActivity.gameFull()) {
+                    Toast.makeText(this, "Game is full", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent playerIntent = new Intent(ScoreScreenActivity.this, PlayerSelectActivity.class);
+                    startActivity(playerIntent);
+                }
+                break;
+        }
+    }
 }

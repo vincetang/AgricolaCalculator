@@ -18,7 +18,7 @@
         android:id="@+id/itemImage"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:background="@color/colorPrimary"/>
 
     <TextView
@@ -28,6 +28,24 @@
         android:text="Medium Text"
         android:id="@+id/itemText"
         android:layout_below="@+id/itemImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"/>
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_below="@+id/itemText"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/strDone"
+        android:id="@+id/btnDone"
+        android:textSize="14sp"
+        android:layout_below="@id/numberPicker"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
